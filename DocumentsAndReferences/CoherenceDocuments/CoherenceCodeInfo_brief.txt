@@ -1,0 +1,22 @@
+So here goes coherence:
+
+Main MATLAB toolboxes for coherence are Chronux and FieldTrip. I've found Chronux a bit more straightforward/intuitive to use in that it requires less pre-formatting of data. However, FieldTrip has more supporting functions and an active community group. We used Chronux on the vole data as it had the functionality we needed and was straightforward to implement.
+
+Attached are some reference papers on coherence, both methodologically-focused (Mitra & Pesaran, 1999; Pesaran 2008) and experimentally-focused (Jutras et al., 2009; Trimper et al. 2014). You will notice that Trimper et al. performs a Fisher transformation and bias correction of coherence, as motivated by the attached Bokil et al. 2007 paper. This is relevant if you want to compare coherence estimates across experimental groups: the Fisher transform stabilizes variance in coherence for statistical comparisons. The bias correction accounts for differences in sample sizes across groups. 
+
+MATLAB code for applying this transformation and correction looks like:
+
+dof = 2*numTrials*numTapers; % degrees of freedom = 2 * #trials * #tapers; note coherence is calculated using a multitaper approach, as described in the attached papers.
+
+CTransCorr = atanh(C)-(1/(dof-2)); % Fisher transformed and bias corrected
+
+A similar transformation and bias-correction procedure can be performed for power comparisons across groups (this time log10 transformation), as described in the Bokil and Trimper papers and as follows:
+
+S1TransCorr = 10*(log10(S1)-psi(dof/2)+log(dof/2)); % x10 converts bel-->decibel
+
+S2TransCorr = 10*(log10(S2)-psi(dof/2)+log(dof/2)); 
+
+S12TransCorr = 10*(log10(abs(S12))-psi(dof/2)+log(dof/2)); % this is cross-power
+
+
+
