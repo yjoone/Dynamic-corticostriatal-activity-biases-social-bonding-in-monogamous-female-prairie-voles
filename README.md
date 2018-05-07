@@ -1,5 +1,5 @@
 # Dynamic-corticostriatal-activity-biases-social-bonding-in-monogamous-female-prairie-voles
-This directory contains matlab functions to compute phase amplitude coupling, and coherence. 
+This directory contains matlab functions to compute phase amplitude coupling (PAC), and coherence. 
 
 Place the matlab package anywhere on your computer and add it to your matlab path. This can be done by pulling down the File tab in the Matlab editor. Make sure that you use "Add with subfolders". For future use, you can save this path by clicking save. 
 
@@ -7,6 +7,8 @@ Sub directories:
 /chronux - core functions for coherence computing
 /eeglab - core functions for eeg filtering used in phase amplitude coupling computation
 /SampleDataAndScript - contains sample data in .mat file, as well as an example script to run
+/DocumentsAndReferences - contains useful references and documents for Coherence and PAC computation
+/shadedErrorBar - support function to shade error bars on MATLAB figures
 
 Please send feedback and suggestions to the corresponding author: robert.liu@emory.edu
 
